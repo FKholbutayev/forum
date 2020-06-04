@@ -7,33 +7,36 @@ use App\Reply;
 use App\User;
 use App\Channel;
 
-class Thread extends Model {
+class Thread extends Model
+{
     protected $guarded = [];
 
-    public function path() {
+    public function path()
+    {
         return '/threads/' . $this->channel->slug . '/' . $this->id;
     }
 
-    public function replies() {
+    public function replies()
+    {
         return $this->hasMany(Reply::class, 'thread_id');
     }
 
-    public function creator() {
+    public function creator()
+    {
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function addReply($reply) {
+    public function addReply($reply)
+    {
         return $this->replies()->create($reply);
     }
 
-    public function channel() {
+    public function channel()
+    {
         return $this->belongsTo(Channel::class);
     }
 
     public function scopeFilter($query, $filters) {
-        dd($filters);
         return $filters->apply($query);
     }
-
-
 }

@@ -2,22 +2,15 @@
 
 
 namespace App\Filters;
-use Illuminate\Http\Request;
 use App\User;
 
 
-class ThreadFilters {
+class ThreadFilters extends Filters {
 
-    public function __construct(Request $request) {
-        $this->request = $request;
-    }
+    protected $filters = ['by'];
 
-    public function apply($builder) {
-
-        if(!$username = $this->request->by) return $builder;
-
-            $user = User::where('name', $username)->firstOrFail();
-            return $builder->where('user_id', $user->id);
-
+    public function by($username) {
+        $user = User::where('name', $username)->firstOrFail(); 
+        return $this->builder->where('user_id', $user->id);
     }
 }
