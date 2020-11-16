@@ -1,19 +1,26 @@
-<?php 
+<?php
 
 
-namespace App\Filters; 
+namespace App\Filters;
 use Illuminate\Http\Request;
 
 
 abstract class Filters {
 
-    public function __construct(Request $request) {
+    protected $builder;
+    /**
+     * @var Request
+     */
+    private $request;
+
+    public function __construct(Request $request)
+    {
         $this->request = $request;
     }
 
     public function apply($builder) {
 
-        $this->builder = $builder;  
+        $this->builder = $builder;
 
         foreach($this->getFilters() as $filter => $value) {
 
@@ -28,7 +35,7 @@ abstract class Filters {
     }
 
     public function getFilters() {
-        $filters = array_intersect(array_keys($this->request->all()), $this->filters); 
+        $filters = array_intersect(array_keys($this->request->all()), $this->filters);
         return $this->request->only($filters);
     }
 
