@@ -18,6 +18,11 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        body { padding-bottom: 100px; }
+        .level { display: flex; align-items: center; }
+        .flex { flex: 1; }
+    </style>
 </head>
 <body>
     <div id="app">
@@ -45,8 +50,13 @@
                                @if(auth()->check())
                                  <a class="nav-link" href="/threads?by={{auth()->user()->name}}">{{ __('My Threads') }}</a>
                                @endif
+
+                               <a class="nav-link" href="/threads?popular=1">{{ __('Popularity') }}</a>
+
                            </div>
                         </li>
+
+
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
