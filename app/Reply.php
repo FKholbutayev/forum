@@ -9,7 +9,8 @@ class Reply extends Model {
 
     protected $guarded = [];
     protected $with = ['owner', 'favorites'];
-    use Favoritable;
+
+    use Favoritable, RecordsActivity;
 
     public function owner()
     {
