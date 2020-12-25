@@ -19,6 +19,7 @@ class Thread extends Model
     }
 
     protected $guarded = [];
+    protected $with = ['creator', 'channel'];
 
     public function path()
     {
@@ -28,6 +29,7 @@ class Thread extends Model
     public function replies()
     {
         return $this->hasMany(Reply::class, 'thread_id');
+
     }
 
     public function creator()

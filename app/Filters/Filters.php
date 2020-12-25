@@ -29,7 +29,6 @@ abstract class Filters {
             }
         }
 
-
         return $this->builder;
 
     }
