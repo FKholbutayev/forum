@@ -62,20 +62,18 @@ class ThreadController extends Controller {
     }
 
 
-    public function edit(Thread $thread)
+
+    public function destroy($channel, Thread $thread)
     {
-        //
-    }
+        $this->authorize('update', $thread);
 
+        try {
+            $thread->delete();
+        } catch (\Exception $e) {
+            return response('Can not be deleted');
+        }
 
-    public function update(Request $request, Thread $thread)
-    {
-        //
-    }
+        return redirect('/threads');
 
-
-    public function destroy(Thread $thread)
-    {
-        //
     }
 }
