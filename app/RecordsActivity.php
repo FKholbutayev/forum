@@ -7,6 +7,9 @@ namespace App;
 trait RecordsActivity
 {
     public static function bootRecordsActivity() {
+
+        if (auth()->guest()) return;
+
         static::created(function($thread) {
             $thread->recordActivity('created');
         });
@@ -25,7 +28,7 @@ trait RecordsActivity
     public function recordActivity($event)
     {
         $this->activity()->create([
-            'user_id' => auth()->user()->id,
+            'user_id' => auth()->id(),
             'type' => $this->getActivityType($event),
         ]);
     }
