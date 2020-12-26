@@ -33,15 +33,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="736ce83f-b45c-42a0-a510-36b3ce42e0ec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/profiles/activities/activity.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/profiles/activities/created_reply.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/profiles/activities/created_thread.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Activity.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Activity.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfilesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfilesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/RecordsActivity.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/RecordsActivity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Reply.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Reply.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profiles/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profiles/show.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +190,7 @@
       <workItem from="1605528474047" duration="591000" />
       <workItem from="1605630753810" duration="1906000" />
       <workItem from="1605967152163" duration="3753000" />
-      <workItem from="1608818660147" duration="18441000" />
+      <workItem from="1608818660147" duration="19099000" />
     </task>
     <servers />
   </component>
@@ -216,6 +210,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="523" y="145" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method1" timestamp="1609000187293">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="523" y="145" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method1/0.0.1440.900@0.0.1440.900" timestamp="1609000187293" />
     <state x="500" y="268" key="#com.jetbrains.php.refactoring.pullPush.pullUp.PhpPullUpDialog#1" timestamp="1608916589185">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
