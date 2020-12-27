@@ -24,6 +24,6 @@ class RepliesController extends Controller {
             'channel_id' => $channelId,
         ]);
 
-        return redirect($thread->path());
+        return redirect($thread->path())->with('flash', 'Your reply has been submitted');
     }
 }

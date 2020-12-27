@@ -10,8 +10,12 @@ trait RecordsActivity
 
         if (auth()->guest()) return;
 
-        static::created(function($thread) {
-            $thread->recordActivity('created');
+        static::created(function($model) {
+            $model->recordActivity('created');
+        });
+
+        static::deleting(function($model) {
+            $model->activity()->delete();
         });
     }
 
