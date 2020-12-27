@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Reply;
+use http\Env\Response;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\Request;
 use App\Thread;
 
@@ -25,5 +28,22 @@ class RepliesController extends Controller {
         ]);
 
         return redirect($thread->path())->with('flash', 'Your reply has been submitted');
+    }
+
+    public function destroy(Reply $reply)
+    {
+        try {
+            $this->authorize('update', $reply);
+        } catch (AuthorizationException $e) {
+            return response()->json('Authorization failed', 'failure');
+        }
+
+        try {
+            $reply->delete();
+        } catch (\Exception $e) {
+            return response()->json('failure', 'failure');
+        }
+
+        return back();
     }
 }

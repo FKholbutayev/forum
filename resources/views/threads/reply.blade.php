@@ -1,4 +1,6 @@
-<div class="card-header">
+<script type="text/html" id="reply-template">
+
+    <div id="reply-{{$reply->id}}" class="card-header">
     <div class="level">
 
         <h5 class="flex">
@@ -19,8 +21,22 @@
         </form>
     </div>
     </div>
-</div>
+    </div>
 
 <div class="card-body">
     {{ $reply->body }}
 </div>
+
+@can('update', $reply)
+<div class="card-footer level mr-1">
+    <button type="submit" class="btn btn-primary btn-sm">Edit</button>
+
+    <form method="POST" action="/replies/{{ $reply->id }}">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+    </form>
+</div>
+@endcan
+
+</script>
