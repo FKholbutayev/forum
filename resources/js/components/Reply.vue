@@ -35,15 +35,15 @@ export default {
         cancel() {
             this.editing = false;
         },
-        updateBody() {
+        updateBody(input) {
             const url = `/replies/${this.attributes.id}`
-            console.log("this body", this.body)
-            console.log("attribite boyd", this.attributes.body)
-           /* axios.patch(url, {
-                body: this.body
-            })*/
+            axios.patch(url, {
+                body: input
+            })
 
-           // this.editing = false;
+            this.body = input
+            this.editing = false;
+            flash('Updated')
         }
     }
 }

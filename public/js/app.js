@@ -1996,14 +1996,14 @@ __webpack_require__.r(__webpack_exports__);
     cancel: function cancel() {
       this.editing = false;
     },
-    updateBody: function updateBody() {
+    updateBody: function updateBody(input) {
       var url = "/replies/".concat(this.attributes.id);
-      console.log("this body", this.body);
-      console.log("attribite boyd", this.attributes.body);
-      /* axios.patch(url, {
-           body: this.body
-       })*/
-      // this.editing = false;
+      axios.patch(url, {
+        body: input
+      });
+      this.body = input;
+      this.editing = false;
+      flash('Updated');
     }
   }
 });

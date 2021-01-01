@@ -1,4 +1,4 @@
-<reply :attributes="{{ $reply }}" v-slot="{editing, edit, body, cancel, updateBody}">
+<reply :attributes="{{ $reply }}" v-slot="{ editing, edit, body, cancel, updateBody }" v-cloak>
     <div id="reply-{{$reply->id}}" class="card-header">
     <div class="level">
 
@@ -27,7 +27,7 @@
         <div class="form-group">
            <textarea class="form-control" v-model="body"></textarea>
             <div class="mt-2">
-                <button class="btn btn-sm btn-outline-primary" @click="updateBody">Update</button>
+                <button class="btn btn-sm btn-outline-primary" @click="updateBody(body)">Update</button>
                 <button class="btn btn-sm btn-outline-primary mr-2" @click="cancel">Cancel</button>
             </div>
         </div>
