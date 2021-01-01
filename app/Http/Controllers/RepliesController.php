@@ -46,4 +46,15 @@ class RepliesController extends Controller {
 
         return back();
     }
+
+    public function update(Reply $reply)
+    {
+        try {
+            $this->authorize('update', $reply);
+        } catch (AuthorizationException $e) {
+            return response()->json('Authorization failed', 'failure');
+        }
+
+        $reply->update(["body" => request('body')]);
+    }
 }

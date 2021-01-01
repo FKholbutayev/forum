@@ -1,5 +1,4 @@
-<script type="text/html" id="reply-template">
-
+<reply :attributes="{{ $reply }}" v-slot="{editing, edit, body, cancel, updateBody}">
     <div id="reply-{{$reply->id}}" class="card-header">
     <div class="level">
 
@@ -24,12 +23,21 @@
     </div>
 
 <div class="card-body">
-    {{ $reply->body }}
+    <div v-if="editing">
+        <div class="form-group">
+           <textarea class="form-control" v-model="body"></textarea>
+            <div class="mt-2">
+                <button class="btn btn-sm btn-outline-primary" @click="updateBody">Update</button>
+                <button class="btn btn-sm btn-outline-primary mr-2" @click="cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <div v-else v-text="body"></div>
 </div>
 
 @can('update', $reply)
 <div class="card-footer level mr-1">
-    <button type="submit" class="btn btn-primary btn-sm">Edit</button>
+    <button type="submit" class="btn btn-primary btn-sm" @click="edit">Edit</button>
 
     <form method="POST" action="/replies/{{ $reply->id }}">
         @csrf
@@ -38,5 +46,4 @@
     </form>
 </div>
 @endcan
-
-</script>
+</reply>
