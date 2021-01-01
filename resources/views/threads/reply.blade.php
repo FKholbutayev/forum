@@ -1,4 +1,4 @@
-<reply :attributes="{{ $reply }}" v-slot="{ editing, edit, body, cancel, updateBody }" v-cloak>
+<reply :attributes="{{ $reply }}" v-slot="{ editing, destroy, edit, body, cancel, updateBody }" v-cloak>
     <div id="reply-{{$reply->id}}" class="card-header">
     <div class="level">
 
@@ -38,12 +38,7 @@
 @can('update', $reply)
 <div class="card-footer level mr-1">
     <button type="submit" class="btn btn-primary btn-sm" @click="edit">Edit</button>
-
-    <form method="POST" action="/replies/{{ $reply->id }}">
-        @csrf
-        @method('DELETE')
-        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-    </form>
+    <button type="submit" class="btn btn-danger btn-sm" @click="destroy">Delete</button>
 </div>
 @endcan
 </reply>

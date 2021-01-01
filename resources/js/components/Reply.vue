@@ -3,6 +3,8 @@
         <slot :editing="editing"
               :body="body"
               :cancel="cancel"
+              :destroy="destroy"
+              :visible="visible"
               :updateBody="updateBody"
               :edit="edit">
 
@@ -21,7 +23,7 @@ export default {
     data() {
         return {
             editing: false,
-            body: this.attributes.body
+            body: this.attributes.body,
         }
     },
 
@@ -44,6 +46,17 @@ export default {
             this.body = input
             this.editing = false;
             flash('Updated')
+        },
+
+        destroy() {
+            const url = `/replies/${this.attributes.id}`
+            axios.delete(url);
+
+            $(this.$el).fadeOut(300, () => {
+                flash('Your reply has been deleted')
+            })
+
+
         }
     }
 }

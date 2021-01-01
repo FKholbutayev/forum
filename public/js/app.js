@@ -1973,6 +1973,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Reply",
   props: {
@@ -2004,6 +2006,13 @@ __webpack_require__.r(__webpack_exports__);
       this.body = input;
       this.editing = false;
       flash('Updated');
+    },
+    destroy: function destroy() {
+      var url = "/replies/".concat(this.attributes.id);
+      axios["delete"](url);
+      $(this.$el).fadeOut(300, function () {
+        flash('Your reply has been deleted');
+      });
     }
   }
 });
@@ -38239,6 +38248,8 @@ var render = function() {
         editing: _vm.editing,
         body: _vm.body,
         cancel: _vm.cancel,
+        destroy: _vm.destroy,
+        visible: _vm.visible,
         updateBody: _vm.updateBody,
         edit: _vm.edit
       })

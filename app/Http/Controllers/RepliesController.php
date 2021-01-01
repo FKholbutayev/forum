@@ -44,6 +44,11 @@ class RepliesController extends Controller {
             return response()->json('failure', 'failure');
         }
 
+        if (\request()->expectsJson())
+        {
+            return response()->json(['success' => 'Reply has been deleted']);
+        }
+
         return back();
     }
 
