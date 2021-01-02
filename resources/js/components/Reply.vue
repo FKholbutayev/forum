@@ -4,7 +4,6 @@
               :body="body"
               :cancel="cancel"
               :destroy="destroy"
-              :visible="visible"
               :updateBody="updateBody"
               :edit="edit">
 
