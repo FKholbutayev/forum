@@ -6,6 +6,12 @@ namespace App;
 
 trait Favoritable
 {
+    public static function bootFavoritable()
+    {
+        static::deleting(function($model) {
+            $model->favorites->each->delete();
+        });
+    }
 
     public function getFavoritesCountAttribute()
     {
@@ -40,6 +46,6 @@ trait Favoritable
     {
         $attributes = ['user_id' => auth()->id()];
 
-        return $this->favorites()->where('user_id', $attributes)->delete();
+      //  return $this->favorites()->where('user_id', $attributes)->get()->each->delete();
     }
 }
