@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<thread-view :initial-replies-count="{{$thread->replies_count}}" v-slot="{repliesCount, decreaseCount}">
+    <div class="container">
     <div class="row">
         <div class="col-md-8">
             <div class="card">
@@ -29,13 +30,7 @@
                         {{ $thread->body }}
                 </div>
             </div>
-            @foreach ($thread->replies as $reply)
-                <div class="card mt-4">
-                    @include('threads.reply')
-                </div>
-            @endforeach
-
-            {{ $replies->links() }}
+            <replies @remove="decreaseCount" :data="{{ $thread->replies }}"></replies>
 
             @if(auth()->check())
                 <form method="POST" action="{{ route('reply.store', [$thread->channel->id, $thread->id]) }}">
@@ -57,15 +52,12 @@
                     <p>
                         This thread was published {{ $thread->created_at->diffForHumans() }} by
                         <a href="#">{{ $thread->creator->name }}</a>, and currently
-                        has {{ $thread->replies_count }} {{ Str::plural('comment', $thread->replies_count) }}.
+                        has <span v-text="repliesCount"></span> comments
                     </p>
                 </div>
         </div>
     </div>
+    </div>
+</thread-view>
 
-
-
-
-
-</div>
 @endsection
