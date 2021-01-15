@@ -1,6 +1,7 @@
 <template>
     <div>
         <slot :repliesCount="repliesCount"
+              :increaseCount="increaseCount"
               :decreaseCount="decreaseCount"></slot>
     </div>
 </template>
@@ -26,8 +27,10 @@ export default {
 
     methods: {
         decreaseCount() {
-            console.log("reacting")
-            this.repliesCount--;
+            this.repliesCount--
+        },
+        increaseCount() {
+            this.repliesCount++
         }
     }
 }

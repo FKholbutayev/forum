@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Channel;
 use App\Reply;
 use http\Env\Response;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\Request;
 use App\Thread;
+use Illuminate\Validation\ValidationException;
 
 class RepliesController extends Controller {
 
@@ -17,15 +19,22 @@ class RepliesController extends Controller {
 
     public function store($channelId, Thread $thread) {
 
-        $this->validate(request(), [
-            'body' => 'required'
-        ]);
+        try {
+            $this->validate(request(), [
+                'body' => 'required'
+            ]);
+        } catch (ValidationException $e) {
+            return $e->getMessage();
+        }
 
-        $thread->addReply([
+        $reply = $thread->addReply([
             'body' => request('body'),
             'user_id' => auth()->id(),
-            'channel_id' => $channelId,
         ]);
+
+        if (\request()->expectsJson()) {
+            return $reply->load('owner');
+        }
 
         return redirect($thread->path())->with('flash', 'Your reply has been submitted');
     }

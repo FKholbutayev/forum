@@ -1,51 +1,52 @@
 <template>
     <div class="card bg-white">
         <div :id="'reply-'+id" class="card-header">
-                <div class="level">
-                    <h5 class="flex">
-                        <a :href="'/profiles/'+ data.owner.name"
-                            v-text="data.owner.name">
-                        </a> said
-                        {{ data.created_at }} ago
-                    </h5>
+            <div class="level">
+                <h5 class="flex">
+                    <a :href="'/profiles/'+ data.owner.name"
+                       v-text="data.owner.name">
+                    </a> said
+                    {{ data.created_at }} ago
+                </h5>
 
-                    <div v-if="signedIn">
-                        <favorite :reply="data"></favorite>
-                    </div>
-
+                <div v-if="signedIn">
+                    <favorite :reply="data"></favorite>
                 </div>
+
+            </div>
         </div>
 
         <div class="card-body">
-                <div v-if="editing">
-                    <div class="form-group">
-                        <textarea class="form-control" v-model="body"></textarea>
-                        <div class="mt-2">
-                            <button class="btn btn-sm btn-outline-primary" @click="updateBody(body)">Update</button>
-                            <button class="btn btn-sm btn-outline-primary mr-2" @click="cancel">Cancel</button>
-                        </div>
+            <div v-if="editing">
+                <div class="form-group">
+                    <textarea class="form-control" v-model="body"></textarea>
+                    <div class="mt-2">
+                        <button class="btn btn-sm btn-outline-primary" @click="updateBody(body)">Update</button>
+                        <button class="btn btn-sm btn-outline-primary mr-2" @click="cancel">Cancel</button>
                     </div>
                 </div>
-                <div v-else v-text="body"></div>
+            </div>
+            <div v-else v-text="body"></div>
         </div>
 
-            <div class="card-footer" v-if="canUpdate">
-                <button type="submit" class="btn btn-primary btn-sm" @click="edit">Edit</button>
-                <button type="submit" class="btn btn-danger btn-sm" @click="destroy">Delete</button>
-            </div>
+        <div class="card-footer" v-if="canUpdate">
+            <button type="submit" class="btn btn-primary btn-sm" @click="edit">Edit</button>
+            <button type="submit" class="btn btn-danger btn-sm" @click="destroy">Delete</button>
+        </div>
     </div>
 </template>
 <script>
 import Favorite from "./Favorite";
+
 export default {
     name: "Reply",
     props: {
-      data: {
-          type: Object
-      }
+        data: {
+            type: Object
+        }
     },
 
-    components: { Favorite},
+    components: {Favorite},
 
     data() {
         return {

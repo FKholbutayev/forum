@@ -37,9 +37,7 @@ window.flash = function (message) {
 
 Vue.prototype.authorize = function (handler) {
     let user = window.App.user
-    if(!user) return false
-
-    return handler(user)
+    return user ? handler(user) : false
 }
 
 const app = new Vue({
