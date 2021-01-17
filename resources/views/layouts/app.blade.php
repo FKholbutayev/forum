@@ -61,7 +61,9 @@
                                  <a class="nav-link" href="/threads?by={{auth()->user()->name}}">{{ __('My Threads') }}</a>
                                @endif
 
-                               <a class="nav-link" href="/threads?popular=1">{{ __('Popularity') }}</a>
+                               <a class="nav-link" href="/threads?popular=1">{{ __('Popular Threads') }}</a>
+                               <a class="nav-link" href="/threads?unanswered=1">{{ __('Unanswered Threads') }}</a>
+
 
                            </div>
                         </li>
