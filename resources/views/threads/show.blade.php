@@ -1,18 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-    <thread-view :initial-replies-count="{{$thread->replies_count}}" v-slot="{repliesCount,increaseCount, decreaseCount}">
+    <thread-view :initial-replies-count="{{$thread->replies_count}}"
+                 v-slot="{repliesCount,increaseCount, decreaseCount}">
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
                     <div class="card">
-                        <div class="card-header">
+                        <div class="card-header bg-white">
                             <div class="level">
-                    <span class="flex">
+                                <span class="flex">
                         <a href="/profiles/{{ $thread->creator->name }}">{{ $thread->creator->name }}</a> posted:
                         {{ $thread->title }}
 
-                    </span>
+                                </span>
 
                                 @can('update', $thread)
                                     <form action="{{ $thread->path() }}" method="POST">
@@ -30,7 +31,7 @@
                         </div>
 
                     </div>
-                    <replies @added="increaseCount"  @remove="decreaseCount" :data="{{ $thread->replies }}"></replies>
+                    <replies @added="increaseCount" @remove="decreaseCount"></replies>
                 </div>
 
                 <div class="col-md-4">

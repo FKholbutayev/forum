@@ -1,16 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Threads</div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
 
-                <div class="card-body">
-                    @forelse($threads as $thread)
+                @forelse($threads as $thread)
+
+                    <div class="card mt-4 bg-white">
                         <article>
-                            <div class="level">
+                            <div class="level card-header bg-white">
                                 <h4 class="flex">
                                     <a href="{{ $thread->path() }}">
                                         {{ $thread->title }}
@@ -21,16 +20,14 @@
                                     {{ $thread->replies_count }} {{ Str::plural('reply', $thread->replies_count) }}
                                 </a>
                             </div>
-                            <div class="body">{{ $thread->body }}</div>
+                            <div class="card-body">{{ $thread->body }}</div>
                         </article>
 
-                        <hr>
-                    @empty
-                        <p>There are no relevant records</p>
-                    @endforelse
-                </div>
+                    </div>
+                @empty
+                    <p>There are no relevant records</p>
+                @endforelse
             </div>
         </div>
     </div>
-</div>
 @endsection

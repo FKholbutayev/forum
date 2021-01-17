@@ -1,12 +1,12 @@
 <template>
     <div class="card bg-white">
-        <div :id="'reply-'+id" class="card-header">
+        <div :id="'reply-'+id" class="card-header bg-white">
             <div class="level">
                 <h5 class="flex">
                     <a :href="'/profiles/'+ data.owner.name"
                        v-text="data.owner.name">
                     </a> said
-                    {{ data.created_at }} ago
+                    {{ ago }} ago
                 </h5>
 
                 <div v-if="signedIn">
@@ -29,7 +29,7 @@
             <div v-else v-text="body"></div>
         </div>
 
-        <div class="card-footer" v-if="canUpdate">
+        <div class="card-footer bg-white" v-if="canUpdate">
             <button type="submit" class="btn btn-primary btn-sm" @click="edit">Edit</button>
             <button type="submit" class="btn btn-danger btn-sm" @click="destroy">Delete</button>
         </div>
@@ -37,6 +37,7 @@
 </template>
 <script>
 import Favorite from "./Favorite";
+import moment from 'moment'
 
 export default {
     name: "Reply",
@@ -64,7 +65,10 @@ export default {
             return window.App.signedIn
         },
         canUpdate() {
-            return this.authorize(user => this.data.user_id == user.id)
+            return this.authorize(user => this.data.user_id === user.id)
+        },
+        ago() {
+            return moment(this.data.created_at).fromNow() + '...'
         }
     },
     methods: {
