@@ -24,6 +24,7 @@ Vue.component('flash', require('./components/Flash.vue').default);
 Vue.component('thread-view', require('./pages/Thread.vue').default);
 Vue.component('replies', require('./components/Replies.vue').default);
 Vue.component('paginator', require('./components/Paginator.vue').default);
+Vue.component('subscribe-button', require('./components/SubscribeButton.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

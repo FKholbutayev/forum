@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Reply;
 use App\User;
 use App\Channel;
+use App\ThreadSubscription;
 
 class Thread extends Model
 {
@@ -18,12 +19,11 @@ class Thread extends Model
             $thread->replies->each->delete();
         });
 
-
-
     }
 
     protected $guarded = [];
     protected $with = ['creator', 'channel'];
+    protected $appends = ['isSubscribedTo'];
 
     public function path()
     {
@@ -55,4 +55,30 @@ class Thread extends Model
     {
         return $filters->apply($query);
     }
+
+    public function subscribe($userId=null)
+    {
+        return $this->subscription()->create([
+            'user_id' => $userId? : auth()->id()
+        ]);
+    }
+
+    public function unsubscribe($userId=null)
+    {
+        return $this->subscription()
+                    ->where('user_id', $userId?:auth()->id())
+                    ->delete();
+    }
+
+    public function subscription()
+    {
+        return $this->hasMany(ThreadSubscription::class);
+    }
+
+    public function getIsSubscribedToAttribute()
+    {
+        return $this->subscription()
+                    ->where('user_id', auth()->id())
+                    ->exists();
+        }
 }

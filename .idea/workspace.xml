@@ -33,15 +33,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="736ce83f-b45c-42a0-a510-36b3ce42e0ec" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/js/components/SubscribeButton.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Filters/ThreadFilters.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Filters/ThreadFilters.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RepliesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RepliesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Reply.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Reply.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Thread.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Thread.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_28_162333_create_threads_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_28_162333_create_threads_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_28_162946_create_replies_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_28_162946_create_replies_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_15_165914_delete_channel_id_from_replies_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/threads/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/threads/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,7 +205,8 @@
       <workItem from="1609266465147" duration="1025000" />
       <workItem from="1609424581830" duration="19173000" />
       <workItem from="1609870009748" duration="12751000" />
-      <workItem from="1610720448242" duration="16380000" />
+      <workItem from="1610720448242" duration="18174000" />
+      <workItem from="1611151829574" duration="3315000" />
     </task>
     <servers />
   </component>
@@ -247,10 +246,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="421" y="205" width="598" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1610721844956" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1610890057892">
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1610909827827">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1610890057892" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1610909827827" />
     <state x="385" y="201" width="670" height="613" key="search.everywhere.popup/0.23.1440.816@0.23.1440.816" timestamp="1609958275742" />
   </component>
 </project>
