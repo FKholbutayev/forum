@@ -2324,7 +2324,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     classes: function classes() {
-      return ['btn', this.active ? 'btn-primary' : 'btn-default'];
+      return ['btn', this.active ? 'btn-primary' : 'btn-secondary'];
     }
   },
   methods: {
