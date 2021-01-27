@@ -19,6 +19,6 @@ class NotificationController extends Controller
 
     public function destroy(User $user, $notificationId)
     {
-        return auth()->user()->notifictions()->findOrFail($notificationId)->markAsRead();
+        return auth()->user()->notifications()->findOrFail($notificationId)->markAsRead();
     }
 }

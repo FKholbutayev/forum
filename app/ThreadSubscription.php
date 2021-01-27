@@ -21,12 +21,11 @@ class ThreadSubscription extends Model
 
    public function notify($reply)
    {
-       dd("coming here");
-        $this->user->notify(new ThreadWasUpdated($this, $reply));
+        $this->user->notify(new ThreadWasUpdated($this->thread, $reply));
    }
 
    public function forReply($reply)
    {
-       $this->user_id != $reply->user_id;
+       return $this->user_id != $reply->user_id;
    }
 }
