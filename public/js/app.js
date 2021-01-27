@@ -2324,14 +2324,19 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     classes: function classes() {
-      return ['btn', this.active ? 'btn-primary' : 'btn-secondary'];
+      return ['btn', this.activeStatus ? 'btn-primary' : 'btn-secondary'];
     }
+  },
+  data: function data() {
+    return {
+      activeStatus: this.active
+    };
   },
   methods: {
     subscribe: function subscribe() {
-      var requestType = !this.active ? 'post' : 'delete';
+      var requestType = !this.activeStatus ? 'post' : 'delete';
       axios[requestType](location.pathname + '/subscriptions');
-      this.active = !this.active;
+      this.activeStatus = !this.activeStatus;
       flash('Subscribed to thread');
     }
   }

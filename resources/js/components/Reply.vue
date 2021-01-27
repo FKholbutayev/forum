@@ -47,7 +47,7 @@ export default {
         }
     },
 
-    components: {Favorite},
+    components: { Favorite },
 
     data() {
         return {

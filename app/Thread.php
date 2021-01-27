@@ -45,10 +45,12 @@ class Thread extends Model
 
     public function addReply($reply)
     {
-        $this->replies()->create($reply);
+        $reply = $this->replies()->create($reply);
 
         $this->subscriptions
-         ->filter->sameReplyId($reply)
+         ->filter(function ($sub) use ($reply){
+             return $sub->user_id != $reply->user_id;
+         })
          ->each->notify($reply);
 
         return $reply;

@@ -4,7 +4,6 @@ namespace App;
 
 use App\Notifications\ThreadWasUpdated;
 use Illuminate\Database\Eloquent\Model;
-use phpDocumentor\Reflection\Types\This;
 
 class ThreadSubscription extends Model
 {
@@ -22,11 +21,12 @@ class ThreadSubscription extends Model
 
    public function notify($reply)
    {
-       return $this->user->notify(new ThreadWasUpdated($this->thread, $reply));
+       dd("coming here");
+        $this->user->notify(new ThreadWasUpdated($this, $reply));
    }
 
-   public function sameReplyId($reply)
+   public function forReply($reply)
    {
-      return $this->user_id != $reply->user_id;
+       $this->user_id != $reply->user_id;
    }
 }
