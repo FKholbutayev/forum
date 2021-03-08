@@ -12,7 +12,16 @@
                             <div class="level card-header bg-white">
                                 <h4 class="flex">
                                     <a href="{{ $thread->path() }}">
+
+                                        @if(auth()->check() && $thread->hasUpdatesFor(auth()->user()))
+                                            <strong>
+                                                {{ $thread->title }}
+                                            </strong>
+                                        @else
+
                                         {{ $thread->title }}
+
+                                        @endif
                                     </a>
                                 </h4>
 

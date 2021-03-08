@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Channel;
 use App\Reply;
+use App\Spam;
 use http\Env\Response;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\Request;
@@ -22,12 +23,15 @@ class RepliesController extends Controller {
         return $thread->replies()->paginate(10);
     }
 
-    public function store($channelId, Thread $thread) {
+    public function store($channelId, Thread $thread, Spam $spam) {
 
         try {
             $this->validate(request(), [
                 'body' => 'required'
             ]);
+
+            $spam->detect(request('body'));
+
         } catch (ValidationException $e) {
             return $e->getMessage();
         }
