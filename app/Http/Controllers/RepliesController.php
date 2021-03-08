@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Channel;
+use App\Inspection\Spam;
 use App\Reply;
-use App\Spam;
-use http\Env\Response;
 use Illuminate\Auth\Access\AuthorizationException;
-use Illuminate\Http\Request;
 use App\Thread;
 use Illuminate\Validation\ValidationException;
 
