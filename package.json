@@ -25,6 +25,6 @@
     },
     "dependencies": {
         "font-awesome": "^4.7.0",
-        "moment": "^2.29.1"
+        "moment": "^2.29.4"
     }
 }
